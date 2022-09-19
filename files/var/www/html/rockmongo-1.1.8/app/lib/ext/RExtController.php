@@ -26,6 +26,7 @@ class RExtController extends RController {
 			echo '<script language="Javascript">window.location="' . $url . '"</script>';
 			exit();
 		}
+		//var_dump( $url );
 		header("location:{$url}");
 		exit();
 	}

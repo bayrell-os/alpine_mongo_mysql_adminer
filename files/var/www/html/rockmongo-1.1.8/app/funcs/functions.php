@@ -7,8 +7,10 @@
  * @return string utf-8 string
  */
 function json_unicode_to_utf8($json){
-	$json = preg_replace_callback("/\\\\u([0-9a-f]{4})/", create_function('$match', '
-		$val = intval($match[1], 16);
+    
+    $fn = function ($match)
+    {
+        $val = intval($match[1], 16);
 		$c = "";
 		if($val < 0x7F){        // 0000-007F
 			$c .= chr($val);
@@ -21,7 +23,9 @@ function json_unicode_to_utf8($json){
 			$c .= chr(0x80 | ($val % 64));
 		}
 		return $c;
-	'), $json);
+    };
+    
+	$json = preg_replace_callback("/\\\\u([0-9a-f]{4})/", $fn, $json);
 	return $json;
 }
 
@@ -117,11 +121,17 @@ function json_format_html($json)
                 break;
         }
     }
-    $new_json = preg_replace_callback("{(<font color=\"blue\">([\\da-zA-Z_\\.]+)</font>)+}", create_function('$match','
-    	$string = str_replace("<font color=\"blue\">", "", $match[0]);
+    $fn = function ($match)
+    {
+        $string = str_replace("<font color=\"blue\">", "", $match[0]);
     	$string = str_replace("</font>", "", $string);
     	return "<font color=\"blue\" class=\"no_string_var\">" . $string  . "</font>";
-    '), $new_json);
+    };
+    $new_json = preg_replace_callback(
+        "{(<font color=\"blue\">([\\da-zA-Z_\\.]+)</font>)+}",
+        $fn,
+        $new_json
+    );
     return $new_json;
 }
 

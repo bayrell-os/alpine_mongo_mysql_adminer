@@ -14,7 +14,6 @@ $i = 0;
 
 $servers = getenv("MONGO_CONFIG");
 $servers = @json_decode($servers, true);
-
 $MONGO["servers"] = $servers;
 
 /*

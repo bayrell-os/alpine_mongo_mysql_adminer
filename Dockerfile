@@ -1,10 +1,12 @@
-ARG ARCH=
-FROM docker.io/bayrell/alpine_php_fpm:7.4-5${ARCH}
-	
-ADD files /src/files
+ARG ARCH=amd64
+FROM docker.io/bayrell/virtual_space:0.4.3-${ARCH}
+
 RUN cd ~; \
-	cp -rf /src/files/etc/* /etc/; \
-	cp -rf /src/files/var/* /var/; \
-	rm -rf /src/files; \
-	chmod +x /root/run.sh; \
+	rm -rf /var/www/html; \
+	rm -rf /etc/nginx/sites-enabled/99-app.conf; \
+	echo 'Ok'
+
+ADD files /
+RUN cd ~; \
+	chmod +x /root/*.sh; \
 	echo 'Ok'

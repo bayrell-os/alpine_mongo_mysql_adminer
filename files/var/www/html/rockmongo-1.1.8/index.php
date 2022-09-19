@@ -6,6 +6,12 @@
  * @package rockmongo
  */
 
+/*
+$request_url = $_SERVER["HTTP_X_FORWARDED_PREFIX"] . $_SERVER["REQUEST_URI"];
+$request_url = preg_replace("/\/+$/", "", $request_url);
+$_SERVER["REQUEST_URI"] = $request_url;
+*/
+
 /**
 * Defining version number and enabling error reporting
 */

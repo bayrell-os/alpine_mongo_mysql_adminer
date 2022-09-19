@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<template>
+	<uid>org.bayrell.alpine_mongo_mysql_adminer</uid>
+	<name>Adminer and RockMongo</name>
+	<version>1.1.0-virtual_space</version>
+	<type>virtual_space</type>
+	<branch>virtual_space</branch>
+	<maintainer>Ildar &lt;ildar@bayrell.org&gt;</maintainer>
+	<marketplace>https://cloud.bayrell.org/</marketplace>
+	<link name="Docker hub">https://hub.docker.com/r/bayrell/alpine_mongo_mysql_adminer</link>
+	<link name="Github">https://github.com/bayrell-os/alpine_mongo_mysql_adminer</link>
+	<xml name="bayrell.org">https://cloud.bayrell.org/marketplace/org.bayrell.alpine_mongo_mysql_adminer.xml</xml>
+	<xml name="github.com">https://raw.githubusercontent.com/bayrell-os/alpine_adminer/main/org.bayrell.alpine_mongo_mysql_adminer.xml</xml>
+	<date>2022-09-19T22:44:00+06:00</date>
+	<yaml>
+		<services>
+			<_var_app_name_>
+				<image>bayrell/alpine_mongo_mysql_adminer:1.1.0</image>
+				<environment>
+					<MYSQL_HOST>_var_mysql_host_</MYSQL_HOST>
+					<MYSQL_LOGIN>_var_mysql_login_</MYSQL_LOGIN>
+					<MYSQL_PASSWORD>_var_mysql_password_</MYSQL_PASSWORD>
+					<MONGO_CONFIG>
+					[
+						{
+							"mongo_name": "MongoDB",
+							"mongo_host": "mongodb://_var_mongo_host_",
+							"mongo_port": "",
+							"mongo_timeout": 0,
+							"mongo_auth": true
+						},
+					]
+					</MONGO_CONFIG>
+				</environment>
+				<volumes>_var_app_name_:/data</volumes>
+			</_var_app_name_>
+		</services>
+		<volumes>
+			<_var_app_name_ />
+		</volumes>
+	</yaml>
+	<variables>
+		<variable>
+			<name>_var_mysql_host_</name>
+			<label>MySQL host</label>
+			<type>string</type>
+		</variable>
+		<variable>
+			<name>_var_mysql_login_</name>
+			<label>MySQL login</label>
+			<type>string</type>
+		</variable>
+		<variable>
+			<name>_var_mysql_password_</name>
+			<label>MySQL password</label>
+			<type>string</type>
+		</variable>
+		<variable>
+			<name>_var_mongo_host_</name>
+			<label>MongoDB host</label>
+			<type>string</type>
+		</variable>
+	</variables>
+	<modificators>
+		<li>org.bayrell.modificator.cloud_os</li>
+		<li>org.bayrell.modificator.cloud_key</li>
+		<li>org.bayrell.modificator.deploy_hostname</li>
+	</modificators>
+	<patch>
+		<name>Template patch</name>
+		<operations></operations>
+	</patch>
+</template>
