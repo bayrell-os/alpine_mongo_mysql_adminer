@@ -33,13 +33,13 @@ padding-bottom: 5px;
 			Adminer
 		</a>
 	</li>
-	
+	<!--
 	<li class="app_menu__row">
 		<a href="info.php">
 			Info
 		</a>
 	</li>
-	
+	-->
 </ul>
 
 </div></div>
