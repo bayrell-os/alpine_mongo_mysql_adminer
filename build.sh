@@ -29,7 +29,7 @@ case "$1" in
 	;;
 	
 	manifest)
-		rm -rf ~/.docker/manifests/docker.io_bayrell_alpine_php_fpm-*
+		rm -rf ~/.docker/manifests/docker.io_bayrell_alpine_mongo_mysql_adminer-*
 		
 		docker push bayrell/$IMAGE_NAME:$VERSION.$SUBVERSION-amd64
 		docker push bayrell/$IMAGE_NAME:$VERSION.$SUBVERSION-arm64v8
