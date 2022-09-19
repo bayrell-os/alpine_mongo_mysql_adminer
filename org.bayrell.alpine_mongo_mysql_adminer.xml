@@ -28,7 +28,7 @@
 							"mongo_port": "",
 							"mongo_timeout": 0,
 							"mongo_auth": true
-						},
+						}
 					]
 					</MONGO_CONFIG>
 				</environment>
