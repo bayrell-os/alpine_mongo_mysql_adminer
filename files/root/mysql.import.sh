@@ -7,8 +7,8 @@ fi
 
 FILE=$1
 DB=$2
-FILE_EXT="${FILE#*.}"
-
+FILE_NAME=$(basename -- "$FILE")
+FILE_EXT="${FILE_NAME#*.}"
 
 if [ ! -f "$FILE" ]; then
     echo "File $FILE does not exists"
