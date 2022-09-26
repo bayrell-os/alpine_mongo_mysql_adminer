@@ -14,6 +14,15 @@ $i = 0;
 
 $servers = getenv("MONGO_CONFIG");
 $servers = @json_decode($servers, true);
+
+if ($servers)
+{
+    foreach ($servers as &$server)
+    {
+        $server["mongo_host"] = "mongodb://" . $server["mongo_host"];
+    }
+}
+
 $MONGO["servers"] = $servers;
 
 /*

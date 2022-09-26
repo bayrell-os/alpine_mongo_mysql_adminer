@@ -23,7 +23,7 @@ padding-bottom: 5px;
 <ul class="app_menu">
 	
 	<li class="app_menu__row">
-		<a href="rockmongo-1.1.8/">
+		<a href="rockmongo.php">
 		Rockmongo
 		</a>
 	</li>

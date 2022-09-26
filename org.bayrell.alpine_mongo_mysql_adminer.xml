@@ -2,7 +2,7 @@
 <template>
 	<uid>org.bayrell.alpine_mongo_mysql_adminer</uid>
 	<name>Adminer and RockMongo</name>
-	<version>1.1.0-virtual_space</version>
+	<version>1.1.1-virtual_space</version>
 	<type>virtual_space</type>
 	<branch>virtual_space</branch>
 	<maintainer>Ildar &lt;ildar@bayrell.org&gt;</maintainer>
@@ -10,12 +10,12 @@
 	<link name="Docker hub">https://hub.docker.com/r/bayrell/alpine_mongo_mysql_adminer</link>
 	<link name="Github">https://github.com/bayrell-os/alpine_mongo_mysql_adminer</link>
 	<xml name="bayrell.org">https://cloud.bayrell.org/marketplace/org.bayrell.alpine_mongo_mysql_adminer.xml</xml>
-	<xml name="github.com">https://raw.githubusercontent.com/bayrell-os/alpine_adminer/main/org.bayrell.alpine_mongo_mysql_adminer.xml</xml>
-	<date>2022-09-19T22:44:00+06:00</date>
+	<xml name="github.com">https://raw.githubusercontent.com/bayrell-os/alpine_adminer/main/org.bayrell.alpine_mongo_mysql_adminer.admin.xml</xml>
+	<date>2022-09-26T22:44:00+06:00</date>
 	<yaml>
 		<services>
 			<_var_app_name_>
-				<image>bayrell/alpine_mongo_mysql_adminer:1.1.0</image>
+				<image>bayrell/alpine_mongo_mysql_adminer:1.1.1</image>
 				<environment>
 					<MYSQL_HOST>_var_mysql_host_</MYSQL_HOST>
 					<MYSQL_LOGIN>_var_mysql_login_</MYSQL_LOGIN>
@@ -24,8 +24,10 @@
 					[
 						{
 							"mongo_name": "MongoDB",
-							"mongo_host": "mongodb://_var_mongo_host_",
+							"mongo_host": "_var_mongo_host_",
 							"mongo_port": "",
+							"mongo_login": "_var_mongo_login_",
+							"mongo_password": "_var_mongo_password_",
 							"mongo_timeout": 0,
 							"mongo_auth": true
 						}
@@ -58,6 +60,16 @@
 		<variable>
 			<name>_var_mongo_host_</name>
 			<label>MongoDB host</label>
+			<type>string</type>
+		</variable>
+		<variable>
+			<name>_var_mongo_login_</name>
+			<label>MongoDB login</label>
+			<type>string</type>
+		</variable>
+		<variable>
+			<name>_var_mongo_password_</name>
+			<label>MongoDB password</label>
 			<type>string</type>
 		</variable>
 	</variables>

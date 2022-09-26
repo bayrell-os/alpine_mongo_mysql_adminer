@@ -183,7 +183,7 @@ class VarExportor {
 			switch (gettype($var)) {
 				case "integer":
 					$this->_paramIndex ++;
-					$this->_jsonParams[$this->_paramIndex] = 'NumberInt(' . $var . ')';
+					$this->_jsonParams[$this->_paramIndex] = $var;
 					return $this->_param($this->_paramIndex);
 				default:
 					return $var;
@@ -202,7 +202,7 @@ class VarExportor {
 					$this->_jsonParams[$this->_paramIndex] = 'ObjectId("' . $var->__toString() . '")';
 					return $this->_param($this->_paramIndex);
 				case "MongoInt32":
-						$this->_jsonParams[$this->_paramIndex] = 'NumberInt(' . $var->__toString() . ')';
+						$this->_jsonParams[$this->_paramIndex] = $var->__toString();
 						return $this->_param($this->_paramIndex);
 				case "MongoInt64":
 					$this->_jsonParams[$this->_paramIndex] = $var->__toString();
